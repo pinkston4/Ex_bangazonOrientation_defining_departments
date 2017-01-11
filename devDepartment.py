@@ -7,8 +7,8 @@ class Dev(Department):
 		get_language
 	'''
 
-	def __init__(self, name, supervisor, employee_count):
-		super(Dev, self).__init__(name, supervisor, employee_count)
+	def __init__(self, name, supervisor, employee_count, budget):
+		super(Dev, self).__init__(name, supervisor, employee_count, budget)
 		self.languages = []
 
 	def add_language(self, language):
@@ -21,9 +21,19 @@ class Dev(Department):
 	def get_language(self):
 		return self.languages 
 
-jack_dev = Dev('Developer', 'Steve', 28)
+	def get_budget(self, budget):
+		super(Dev, self).get_budget(budget)
+		return self.budget
+		
+	  
+
+jack_dev = Dev('Developer', 'Steve', 28, 10000)
+print(jack_dev.budget)
 print(jack_dev.name)
 
 jack_dev.add_language('python')
 jack_dev.add_language('javascript')
 print(jack_dev.get_language())
+
+print(jack_dev.get_budget(1000))
+print(jack_dev.budget)
